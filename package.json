@@ -1,0 +1,29 @@
+{
+  "name": "labels-generator",
+  "version": "0.0.1",
+  "description": "Manage your GitHub labels giving to your projects a wonderful, colourful and consistent labelling system",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/iarroyo5/labels-generator.git"
+  },
+  "keywords": [
+    "github-labels",
+    "add-labels",
+    "remove-labels",
+    "tags",
+    "labels-generator",
+    "github-api",
+    "colourful-labels",
+    "fancy-labels"
+  ],
+  "author": "Inaki Arrroyo <yo@inakiarroyo.com> (http://inakiarroyo.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iarroyo5/labels-generator/issues"
+  },
+  "homepage": "https://github.com/iarroyo5/labels-generator#readme"
+}
