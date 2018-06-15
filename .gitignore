@@ -1,1 +1,30 @@
-node_modules
+# Mac files
+*.DS_Store
+*.orig
+
+# Logs
+logs
+*.log*
+
+# IDEs
+.idea/
+.vscode/
+
+# TypeScrit temporary/cache files
+**/.baseDir.ts
+**/.tscache/
+tscommand-*.tmp.txt
+
+# npm
+node_modules/
+npm-debug.log*
+.npm_cache
+
+# vim swap files
+*.sw*
+
+# Build / distribution
+dist/
+
+# Tests
+coverage/
