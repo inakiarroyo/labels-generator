@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as styles from './labels.scss';
 import { getTextColorFromBackground } from '../../helpers/utils';
 import { Label } from '../../themes/index';
+import { emojify } from 'node-emoji';
 
 export interface LabelTitle {
   isTitle?: boolean;
@@ -17,7 +18,7 @@ export const LabelItem = ({name, color, description = '', isTitle = false}: Prop
       className={isTitle ? styles.labelTitle : styles.label}
       style={{backgroundColor: color, color: textColor}}
     >
-      {name}
+      {emojify(name)}
     </span>
   );
 }
