@@ -1,16 +1,10 @@
 const path = require('path');
 const merge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 
 const config = require('./webpack.config.js');
 
 module.exports = merge(config, {
   mode: 'development',
-  entry: {
-    index: path.join(__dirname, 'src', 'index.tsx')
-  },
   devtool: 'eval-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
@@ -31,20 +25,5 @@ module.exports = merge(config, {
         ]
       }
     ]
-  },
-  plugins: [
-    new CleanWebpackPlugin(['dist']),
-    new Dotenv({
-      systemvars: true
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: path.join(__dirname, 'src', 'index.html'),
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true
-      }
-    })
-  ]
+  }
 });
