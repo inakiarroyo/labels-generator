@@ -1,6 +1,12 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
+  entry: {
+    index: path.join(__dirname, 'src', 'index.tsx')
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
@@ -48,5 +54,20 @@ module.exports = {
         use: 'file-loader?name=[name].[ext]'
       }
     ]
-  }
+  },
+  plugins: [
+    new CleanWebpackPlugin(['dist']),
+    new Dotenv({
+      systemvars: true
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: path.join(__dirname, 'src', 'index.html'),
+      inject: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true
+      }
+    })
+  ]
 };
