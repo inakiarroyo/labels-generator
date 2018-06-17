@@ -20,7 +20,7 @@ module.exports = merge(config, {
         test: /\.(css|scss)$/,
         use: [
           { loader: 'style-loader' },
-          { loader: 'css-loader', options: { sourceMap: true, localIdentName: '[local]_[hash:base64:8]' } },
+          { loader: 'css-loader', options: { modules: true, sourceMap: true, localIdentName: '[local]_[hash:base64:8]' } },
           { loader: 'sass-loader', options: { sourceMap: true } }
         ]
       }
