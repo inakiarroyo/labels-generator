@@ -1,27 +1,73 @@
+import Grid from '@material-ui/core/Grid';
 import * as React from 'react';
 import * as styles from 'themes.scss';
 import { themeList, themesMap } from '../../themes/index';
 import { ThemeList } from './theme-list';
+import { ThemePreview } from './theme-preview';
 
-export class Themes extends React.PureComponent {
+export interface State {
+  previewTheme: string;
+  checkedThemes: string[];
+}
+
+export class Themes extends React.PureComponent<{}, State> {
   constructor(props: {}) {
     super(props);
 
-    this.handleTheme = this.handleTheme.bind(this);
+    this.state = {
+      previewTheme: themeList[0],
+      checkedThemes: []
+    };
+
+    this.handleThemePreview = this.handleThemePreview.bind(this);
+    this.handleAddToggleTheme = this.handleAddToggleTheme.bind(this);
   }
 
   public render(): JSX.Element {
+    const { checkedThemes, previewTheme } = this.state;
+
     return (
       <div>
         <h2>Themes</h2>
 
-        <ThemeList themes={themeList} onClickTheme={this.handleTheme} />
+         <div>
+          <Grid container spacing={24}>
+            <Grid item xs={12} sm={4}>
+              <ThemeList
+                themes={themeList}
+                checkedThemes={checkedThemes}
+                onClickPreview={this.handleThemePreview}
+                onClickAddToggle={this.handleAddToggleTheme}
+              />
+            </Grid>
+            <Grid item xs={12} sm={8}>
+              <ThemePreview theme={previewTheme} labels={themesMap} />
+            </Grid>
+          </Grid>
+        </div>
+
       </div>
     );
   }
 
-  private handleTheme(event: React.MouseEvent<HTMLLIElement>, theme: string): void {
-    console.log(theme);
+  private handleThemePreview = (theme: string) => (): void => {
+    this.setState({
+      previewTheme: theme
+    });
+  }
+
+  private handleAddToggleTheme = (theme: string) => (): void => {
+    const { checkedThemes } = this.state;
+    const currentIndex = checkedThemes.indexOf(theme);
+    const newCheckedThemes = [...checkedThemes];
+
+    currentIndex === -1
+    ? newCheckedThemes.push(theme)
+    : newCheckedThemes.splice(currentIndex, 1);
+
+    this.setState({
+      checkedThemes: newCheckedThemes
+    })
   }
 
 }

@@ -1,6 +1,6 @@
 /* JSON files declaration */
 declare module '*.json' {
-  const value: {}|string|Array<{}>;
+  const value: {} | string | Array<{}>;
   export default value;
 }
 

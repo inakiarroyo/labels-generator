@@ -1,14 +1,20 @@
-import * as githubJSON from './github.json';
-import * as priorityJSON from './priority.json';
-import * as statusJSON from './status.json';
-import * as typeJSON from './type.json';
+const githubJSON = require('./github.json');
+const priorityJSON = require('./priority.json');
+const statusJSON = require('./status.json');
+const typeJSON = require('./type.json');
+
+export interface Label {
+  name: string;
+  description?: string;
+  color: string;
+}
 
 export interface ThemesMap {
-  [key: string]: {};
-  'github': {};
-  'priority': {};
-  'status': {};
-  'type': {};
+  [key: string]: Array<Label>;
+  'github': Array<Label>;
+  'priority': Array<Label>;
+  'status': Array<Label>;
+  'type': Array<Label>;
 }
 
 export const themesMap: ThemesMap = {
