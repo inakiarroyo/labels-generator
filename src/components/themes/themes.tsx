@@ -4,6 +4,7 @@ import * as styles from 'themes.scss';
 import { themeList, themesMap } from '../../themes/index';
 import { ThemeList } from './theme-list';
 import { ThemePreview } from './theme-preview';
+import Typography from '@material-ui/core/Typography';
 
 export interface State {
   previewTheme: string;
@@ -28,23 +29,21 @@ export class Themes extends React.PureComponent<{}, State> {
 
     return (
       <div>
-        <h2>Themes</h2>
+        <Typography variant="headline" component="h3">Themes</Typography>
 
-         <div>
-          <Grid container spacing={24}>
-            <Grid item xs={12} sm={4}>
-              <ThemeList
-                themes={themeList}
-                checkedThemes={checkedThemes}
-                onClickPreview={this.handleThemePreview}
-                onClickAddToggle={this.handleAddToggleTheme}
-              />
-            </Grid>
-            <Grid item xs={12} sm={8}>
-              <ThemePreview theme={previewTheme} labels={themesMap} />
-            </Grid>
+        <Grid container spacing={24}>
+          <Grid item xs={12} sm={4}>
+            <ThemeList
+              themes={themeList}
+              checkedThemes={checkedThemes}
+              onClickPreview={this.handleThemePreview}
+              onClickAddToggle={this.handleAddToggleTheme}
+            />
           </Grid>
-        </div>
+          <Grid item xs={12} sm={8}>
+            <ThemePreview theme={previewTheme} labels={themesMap} />
+          </Grid>
+        </Grid>
 
       </div>
     );

@@ -4,11 +4,12 @@ import { RepoConfig } from './repo-config/repo-config';
 import { Themes } from './themes/themes';
 import { Generator } from './generator/generator';
 import { Editor } from './editor/editor';
-
+import { AppTitle } from './app-title';
 
 export const App = () => (
   <React.Fragment>
-    <h1>Labels Generator</h1>
+    <AppTitle />
+
     <GithubRibbon />
 
     <RepoConfig />
