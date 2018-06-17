@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { GithubRibbon } from './github-ribbon/github-ribbon';
 import { RepoConfig } from './repo-config/repo-config';
-import { Packages } from './packages/packages';
+import { Themes } from './themes/themes';
 import { Generator } from './generator/generator';
 import { Editor } from './editor/editor';
 
@@ -12,7 +12,7 @@ export const App = () => (
     <GithubRibbon />
 
     <RepoConfig />
-    <Packages />
+    <Themes />
     <Generator />
     <Editor />
 
