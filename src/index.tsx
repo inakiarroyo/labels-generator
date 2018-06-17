@@ -1,8 +1,15 @@
 import * as React from 'react';
 import { render } from 'react-dom';
+import Button from '@material-ui/core/Button';
 
-const App = (
-  <h1>Labels Generator</h1>
+const App = () => (
+  <React.Fragment>
+    <h2>Labels Generator</h2>
+
+    <Button variant="contained" color="primary">
+      Create Labels
+    </Button>
+  </React.Fragment>
 );
 
 render(

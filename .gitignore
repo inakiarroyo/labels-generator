@@ -28,3 +28,6 @@ dist/
 
 # Tests
 coverage/
+
+# Config
+.env
