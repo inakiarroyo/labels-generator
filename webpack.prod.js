@@ -4,11 +4,12 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = require('./webpack.config.js');
 
-const nodeModules = fs.readdirSync('node_modules').filter((x) => x !== '.bin');
+// const nodeModules = fs.readdirSync('node_modules').filter((x) => x !== '.bin');
 
 module.exports = merge(config, {
   mode: 'production',
   devtool: 'source-map',
+  // externals: nodeModules,
   module: {
     rules: [
       {
@@ -17,7 +18,6 @@ module.exports = merge(config, {
           fallback: 'style-loader',
           use: [
             { loader: 'css-loader', options: { sourceMap: true, localIdentName: '[local]_[hash:base64:8]' } },
-
             { loader: 'sass-loader', options: { sourceMap: true } }
           ]
         })
