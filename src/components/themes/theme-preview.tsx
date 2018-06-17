@@ -7,9 +7,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import * as React from 'react';
 import * as uuid from 'uuid/v4';
-import { capitalize, getTextColorFromBackground } from '../../helpers/utils';
+import { capitalize } from '../../helpers/utils';
 import { ThemesMap } from '../../themes/index';
-import * as styles from '../../styles/labels.scss';
+import { LabelItem } from '../labels/label';
 
 export interface Props {
   theme: string;
@@ -33,14 +33,10 @@ export const ThemePreview = ({ theme, labels }: Props): JSX.Element => {
         </TableHead>
         <TableBody>
           {themeLabels.map((label) => {
-            const textColor = getTextColorFromBackground(label.color);
-
             return (
               <TableRow key={uuid()}>
                 <TableCell component="th" scope="row">
-                  <span className={styles.label} style={{backgroundColor: label.color, color: textColor}}>
-                    {label.name}
-                  </span>
+                  <LabelItem {...label} />
                 </TableCell>
                 <TableCell>{label.description}</TableCell>
               </TableRow>

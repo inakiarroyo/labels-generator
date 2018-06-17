@@ -1,13 +1,13 @@
 import Typography from '@material-ui/core/Typography';
 import * as React from 'react';
-import * as styles from '../styles/labels.scss';
+import { LabelItem } from './labels/label';
 
 export const AppTitle = () => (
   <React.Fragment>
     <Typography variant="headline" component="h2">
-      <span className={styles.labelTitle}>Labels</span>
+      <LabelItem isTitle={true} name="Labels" color="#98EBED" />
       <span>-</span>
-      <span className={styles.labelTitle2}>Generator</span>
+      <LabelItem isTitle={true} name="Generator" color="#7FFFD4" />
     </Typography>
   </React.Fragment>
 );
