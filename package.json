@@ -39,11 +39,13 @@
     "@material-ui/core": "^1.2.1",
     "@material-ui/icons": "^1.1.0",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "@types/react": "^16.3.17",
     "@types/react-dom": "^16.0.6",
+    "@types/uuid": "^3.4.3",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
     "dotenv-webpack": "^1.5.7",
