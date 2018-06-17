@@ -9,7 +9,7 @@ import * as React from 'react';
 import * as uuid from 'uuid/v4';
 import { capitalize, getTextColorFromBackground } from '../../helpers/utils';
 import { ThemesMap } from '../../themes/index';
-import * as styles from './themes.scss';
+import * as styles from '../../styles/labels.scss';
 
 export interface Props {
   theme: string;
