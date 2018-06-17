@@ -2,9 +2,18 @@
   "name": "labels-generator",
   "version": "0.0.1",
   "description": "Manage your GitHub labels giving to your projects a wonderful, colourful and consistent labelling system",
-  "main": "src/index.ts",
+  "main": "src/index.tsx",
+  "engines": {
+    "node": ">=8.11",
+    "npm": ">=5.6"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:dev": "webpack --progress --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "clean": "rm -rf dist/src dist/dev",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "test:coverage": "jest --coverage",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,9 +30,28 @@
     "fancy-labels"
   ],
   "author": "Inaki Arrroyo <yo@inakiarroyo.com> (http://inakiarroyo.com/)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/iarroyo5/labels-generator/issues"
   },
-  "homepage": "https://github.com/iarroyo5/labels-generator#readme"
+  "homepage": "https://github.com/iarroyo5/labels-generator#readme",
+  "dependencies": {
+    "@material-ui/core": "^1.2.1",
+    "@material-ui/icons": "^1.1.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.3.17",
+    "@types/react-dom": "^16.0.6",
+    "clean-webpack-plugin": "^0.1.19",
+    "dotenv-webpack": "^1.5.7",
+    "html-webpack-plugin": "^3.2.0",
+    "ts-loader": "^4.4.1",
+    "typescript": "^2.9.2",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.6",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.3"
+  }
 }

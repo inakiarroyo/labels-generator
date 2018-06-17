@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "declaration": true,
+    "jsx": "react",
+    "lib": ["es2017", "dom"],
+    "module": "commonjs",
+    "sourceMap": true,
+    "target": "es6",
+    "strict": true
+  },
+  "include": ["./tests/**/*", "./src/**/*"],
+  "exclude": ["node_modules", "config", "dist", "scripts"]
+}
