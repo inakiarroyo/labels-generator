@@ -17,7 +17,7 @@ module.exports = merge(config, {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            { loader: 'css-loader', options: { sourceMap: true, localIdentName: '[local]_[hash:base64:8]' } },
+            { loader: 'css-loader', options: { modules: true, sourceMap: true, localIdentName: '[local]_[hash:base64:8]' } },
             { loader: 'sass-loader', options: { sourceMap: true } }
           ]
         })
