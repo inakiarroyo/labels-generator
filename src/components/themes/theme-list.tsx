@@ -3,12 +3,11 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import Switch from '@material-ui/core/Switch';
 import Tooltip from '@material-ui/core/Tooltip';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import * as React from 'react';
-import { capitalize } from '../../helpers/utils';
+import { capitalize } from '../../utils/utils';
 
 export interface Props {
   themes: string[];
@@ -30,7 +29,7 @@ export class ThemeList extends React.PureComponent<Props, State> {
     const { themes, checkedThemes, onClickPreview, onClickAddToggle } = this.props;
 
     return (
-      <List subheader={<ListSubheader>Themes Settings</ListSubheader>}>
+      <List>
         {
           themes.map((theme) => {
             const isAdded = checkedThemes.indexOf(theme) !== -1;

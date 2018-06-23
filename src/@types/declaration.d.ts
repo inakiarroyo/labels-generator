@@ -10,3 +10,5 @@ declare module '*.scss' {
 
   export = content;
 }
+
+declare module 'react-jss';
