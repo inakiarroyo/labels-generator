@@ -13,7 +13,18 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['*', '.json', '.js', '.jsx', '.ts', '.tsx']
+    extensions: ['*', '.json', '.js', '.jsx', '.ts', '.tsx'],
+    modules: [
+      path.resolve(__dirname, 'src'),
+      'node_modules'
+    ]
+    // alias: {
+    //   __mocks__: path.join(__dirname, 'src', '__mocks__'),
+    //   components: path.join(__dirname, 'src', 'components'),
+    //   core: path.join(__dirname, 'src', 'core'),
+    //   themes: path.join(__dirname, 'src', 'themes'),
+    //   utils: path.join(__dirname, 'src', 'utils')
+    // }
   },
   module: {
     rules: [

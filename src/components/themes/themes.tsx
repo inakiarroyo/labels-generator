@@ -1,10 +1,10 @@
 import Grid from '@material-ui/core/Grid';
-import * as React from 'react';
-import * as styles from 'themes.scss';
-import { themeList, themesMap } from '../../themes/index';
-import { ThemeList } from './theme-list';
-import { ThemePreview } from './theme-preview';
 import Typography from '@material-ui/core/Typography';
+import { ThemeList } from 'components/themes/theme-list';
+import { ThemePreview } from 'components/themes/theme-preview';
+import * as styles from 'components/themes/themes.scss';
+import * as React from 'react';
+import { themeList, themesMap } from 'themes/index';
 
 export interface State {
   previewTheme: string;
@@ -20,8 +20,8 @@ export class Themes extends React.PureComponent<{}, State> {
       checkedThemes: []
     };
 
-    this.handleThemePreview = this.handleThemePreview.bind(this);
-    this.handleAddToggleTheme = this.handleAddToggleTheme.bind(this);
+    // this.handleThemePreview = this.handleThemePreview.bind(this);
+    // this.handleAddToggleTheme = this.handleAddToggleTheme.bind(this);
   }
 
   public render(): JSX.Element {

@@ -5,11 +5,11 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import { LabelItem } from 'components/labels/label-item';
 import * as React from 'react';
+import { ThemesMap } from 'themes/index';
+import { capitalize } from 'utils/utils';
 import * as uuid from 'uuid/v4';
-import { capitalize } from '../../helpers/utils';
-import { ThemesMap } from '../../themes/index';
-import { LabelItem } from '../labels/label';
 
 export interface Props {
   theme: string;

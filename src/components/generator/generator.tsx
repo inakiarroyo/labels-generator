@@ -1,79 +1,104 @@
-import * as React from 'react';
-import * as styles from './generator.scss';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 import TextField from '@material-ui/core/TextField';
-import { LabelItem } from '../labels/label';
-import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import * as styles from 'components/generator/generator.scss';
+import { LabelItem } from 'components/labels/label-item';
+import { ColorPickerColor } from 'core/types';
+import * as React from 'react';
+import { TwitterPicker } from 'react-color';
+import { Label } from 'themes/index';
 
-export interface State {
-  labelName: string;
-  labelColor: string;
+export interface Props {
+  onCreateLabel: (label: Label) => void;
 }
 
-const DEFAULT_LABEL_NAME = 'label preview';
-const DEFAULT_LABEL_COLOR = '#98EBED';
+export type State = Label;
 
-export class Generator extends React.PureComponent<{}, State> {
+export class Generator extends React.PureComponent<Props, State> {
 
-  constructor(props: {}) {
+  private DEFAULT_LABEL_NAME = 'Label Preview';
+  private DEFAULT_LABEL_COLOR = '#7bdcb5';
+
+  constructor(props: Props) {
     super(props);
 
     this.state = {
-      labelName: '',
-      labelColor: DEFAULT_LABEL_COLOR
+      name: '',
+      description: '',
+      color: this.DEFAULT_LABEL_COLOR
     };
+  }
 
-    this.handleChange = this.handleChange.bind(this);
+  private disableButton(name: string, color: string) {
+    return !name || name === '' || !color || color === '';
   }
 
   public render(): JSX.Element {
+    const { name, description, color } = this.state;
+
     return (
       <div>
         <Typography variant="headline" component="h3">Generator</Typography>
 
-        <Paper>
-          <LabelItem color={this.state.labelColor} name={this.state.labelName || DEFAULT_LABEL_NAME}/>
+        <Card className={styles.card}>
+          <div className={styles.cardHeader}>
+            <LabelItem color={color} name={name || this.DEFAULT_LABEL_NAME}/>
+          </div>
 
-          <form noValidate autoComplete="off">
-            <TextField
-              id="labelName"
-              label="Name"
-              placeholder="New Label Name"
-              value={this.state.labelName}
-              onChange={this.handleChange('labelName')}
-              margin="normal"
-              className={styles.textField}
-            />
+          <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
+            <CardContent>
+              <TextField
+                id="name"
+                label="Name"
+                placeholder="New Label Name"
+                value={name}
+                onChange={this.handleChange}
+                margin="normal"
+                className={styles.textField}
+              />
 
-            <TextField
-              id="labelDescription"
-              label="Description"
-              placeholder="Optional Description"
-              margin="normal"
-              className={styles.textField}
-            />
+              <TextField
+                  id="description"
+                  label="Description"
+                  placeholder="Optional Description"
+                  value={description}
+                  onChange={this.handleChange}
+                  margin="normal"
+                  className={styles.textField}
+                />
 
-            <TextField
-              id="labelColor"
-              label="Color"
-              value="#98EBED"
-              margin="normal"
-              className={styles.textField}
-            />
+              <Typography className={styles.labelColor}>Color</Typography>
+              <TwitterPicker
+                color={color}
+                onChangeComplete={ this.handleColorChange }
+              />
+            </CardContent>
 
-            <Button variant="contained" color="primary">
-              Create Label
-            </Button>
+            <CardActions>
+              <Button type="submit" size="small" variant="contained" color="primary" disabled={this.disableButton(name, color)}>
+                Create Label
+              </Button>
+            </CardActions>
           </form>
-        </Paper>
+
+        </Card>
       </div>
     );
   }
 
-  private handleChange = (labelName: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({
-      labelName: event.target.value
-    });
-  };
+  private handleChange = ({target: { id, value }}: React.ChangeEvent<HTMLInputElement>): void => {
+    this.setState({[id]: value} as any);
+  }
+
+  private handleColorChange = (color: ColorPickerColor) => {
+    this.setState({ color: color.hex });
+  }
+
+  private handleSubmit = (event: React.FormEvent): void => {
+    event.preventDefault();
+    console.log(this.state.color, this.state.description, this.state.name);
+  }
 }
