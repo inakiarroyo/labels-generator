@@ -1,14 +1,14 @@
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { ThemeList } from 'components/themes/theme-list';
 import { ThemePreview } from 'components/themes/theme-preview';
 import * as styles from 'components/themes/themes.scss';
+import * as mainStyles from 'styles.scss';
 import * as React from 'react';
 import { themeList, themesMap } from 'themes/index';
 
 export interface State {
   previewTheme: string;
-  checkedThemes: string[];
+  addedThemes: string[];
 }
 
 export class Themes extends React.PureComponent<{}, State> {
@@ -17,34 +17,33 @@ export class Themes extends React.PureComponent<{}, State> {
 
     this.state = {
       previewTheme: themeList[0],
-      checkedThemes: []
+      addedThemes: []
     };
-
-    // this.handleThemePreview = this.handleThemePreview.bind(this);
-    // this.handleAddToggleTheme = this.handleAddToggleTheme.bind(this);
   }
 
   public render(): JSX.Element {
-    const { checkedThemes, previewTheme } = this.state;
+    const { addedThemes, previewTheme } = this.state;
 
     return (
       <div>
         <Typography variant="headline" component="h3">Themes</Typography>
 
-        <Grid container spacing={24}>
-          <Grid item xs={12} sm={4}>
+        <div className={mainStyles.flexContainer}>
+
+          <div className={styles.themeListContainer}>
             <ThemeList
               themes={themeList}
-              checkedThemes={checkedThemes}
+              addedThemes={addedThemes}
               onClickPreview={this.handleThemePreview}
               onClickAddToggle={this.handleAddToggleTheme}
             />
-          </Grid>
-          <Grid item xs={12} sm={8}>
-            <ThemePreview theme={previewTheme} labels={themesMap} />
-          </Grid>
-        </Grid>
+          </div>
 
+          <div className={mainStyles.flex1}>
+            <ThemePreview theme={previewTheme} labels={themesMap} />
+          </div>
+
+        </div>
       </div>
     );
   }
@@ -56,16 +55,16 @@ export class Themes extends React.PureComponent<{}, State> {
   }
 
   private handleAddToggleTheme = (theme: string) => (): void => {
-    const { checkedThemes } = this.state;
-    const currentIndex = checkedThemes.indexOf(theme);
-    const newCheckedThemes = [...checkedThemes];
+    const { addedThemes } = this.state;
+    const currentIndex = addedThemes.indexOf(theme);
+    const newAddedThemes = [...addedThemes];
 
     currentIndex === -1
-    ? newCheckedThemes.push(theme)
-    : newCheckedThemes.splice(currentIndex, 1);
+    ? newAddedThemes.push(theme)
+    : newAddedThemes.splice(currentIndex, 1);
 
     this.setState({
-      checkedThemes: newCheckedThemes
+      addedThemes: newAddedThemes
     })
   }
 

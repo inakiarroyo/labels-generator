@@ -10,6 +10,8 @@ import * as React from 'react';
 import { ThemesMap } from 'themes/index';
 import { capitalize } from 'utils/utils';
 import * as uuid from 'uuid/v4';
+import * as styles from 'components/themes/themes.scss';
+
 
 export interface Props {
   theme: string;

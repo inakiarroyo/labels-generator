@@ -10,6 +10,8 @@ import { JSS } from 'core/types';
 import { create, GenerateClassName } from 'jss';
 import * as React from 'react';
 import { JssProvider } from 'react-jss';
+import * as styles from '../styles.scss';
+import Grid from '@material-ui/core/Grid';
 
 export type Props = {};
 
@@ -30,16 +32,20 @@ export class App extends React.Component<Props> {
   public render(): JSX.Element {
     return (
       <JssProvider jss={this.jss} generateClassName={this.generateClassName}>
-        <React.Fragment>
+        <section className={styles.appContainer}>
           <AppTitle />
 
           <GithubRibbon />
 
           <RepoConfig />
           <Themes />
-          <Generator onCreateLabel={this.handleCreateLabel}/>
-          <Editor />
-        </React.Fragment>
+
+          <div className={styles.flexContainer}>
+            <Generator onCreateLabel={this.handleCreateLabel}/>
+            <Editor />
+          </div>
+
+        </section>
       </JssProvider>
     );
   }

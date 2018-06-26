@@ -1,3 +1,21 @@
 body {
   color: #3c4858;
 }
+
+.appContainer {
+  margin: 50px;
+}
+
+.flexContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flex2 {
+  flex: 2;
+}

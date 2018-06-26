@@ -11,7 +11,7 @@ import { capitalize } from '../../utils/utils';
 
 export interface Props {
   themes: string[];
-  checkedThemes: string[];
+  addedThemes: string[];
   onClickPreview: (theme: string) => () => void;
   onClickAddToggle: (theme: string) => () => void;
 }
@@ -26,13 +26,13 @@ export class ThemeList extends React.PureComponent<Props, State> {
   }
 
   public render(): JSX.Element {
-    const { themes, checkedThemes, onClickPreview, onClickAddToggle } = this.props;
+    const { themes, addedThemes, onClickPreview, onClickAddToggle } = this.props;
 
     return (
       <List>
         {
           themes.map((theme) => {
-            const isAdded = checkedThemes.indexOf(theme) !== -1;
+            const isAdded = addedThemes.indexOf(theme) !== -1;
             const capitalizedTheme = capitalize(theme);
 
             return (
