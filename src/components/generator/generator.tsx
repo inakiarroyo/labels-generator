@@ -9,7 +9,7 @@ import { LabelItem } from 'components/labels/label-item';
 import { ColorPickerColor } from 'core/types';
 import * as React from 'react';
 import { TwitterPicker } from 'react-color';
-import { Label } from 'themes/index';
+import { Label } from 'core/types';
 
 export interface Props {
   onCreateLabel: (label: Label) => void;

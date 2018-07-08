@@ -3,7 +3,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
-import Switch from '@material-ui/core/Switch';
 import Tooltip from '@material-ui/core/Tooltip';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import * as React from 'react';
@@ -11,9 +10,7 @@ import { capitalize } from '../../utils/utils';
 
 export interface Props {
   themes: string[];
-  addedThemes: string[];
   onClickPreview: (theme: string) => () => void;
-  onClickAddToggle: (theme: string) => () => void;
 }
 
 export interface State {
@@ -26,13 +23,12 @@ export class ThemeList extends React.PureComponent<Props, State> {
   }
 
   public render(): JSX.Element {
-    const { themes, addedThemes, onClickPreview, onClickAddToggle } = this.props;
+    const { themes, onClickPreview } = this.props;
 
     return (
       <List>
         {
           themes.map((theme) => {
-            const isAdded = addedThemes.indexOf(theme) !== -1;
             const capitalizedTheme = capitalize(theme);
 
             return (
@@ -46,12 +42,6 @@ export class ThemeList extends React.PureComponent<Props, State> {
                     >
                       <VisibilityIcon />
                     </IconButton>
-                  </Tooltip>
-                  <Tooltip title={isAdded ? 'Remove Labels' : 'Add Labels'}>
-                    <Switch
-                      onChange={onClickAddToggle(theme)}
-                      checked={isAdded}
-                    />
                   </Tooltip>
                 </ListItemSecondaryAction>
               </ListItem>

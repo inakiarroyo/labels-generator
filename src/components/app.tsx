@@ -38,12 +38,13 @@ export class App extends React.Component<Props> {
           <GithubRibbon />
 
           <RepoConfig />
-          <Themes />
 
           <div className={styles.flexContainer}>
             <Generator onCreateLabel={this.handleCreateLabel}/>
             <Editor />
           </div>
+
+          <Themes />
 
         </section>
       </JssProvider>
