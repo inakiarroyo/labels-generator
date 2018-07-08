@@ -1,0 +1,11 @@
+@import "../../constants.scss";
+
+.colum {
+  border-right: 2px solid $headerBackgroundGrey;
+  padding: 10px;
+}
+
+.editorFlexContainer {
+  display: flex;
+  flex-flow: column;
+}

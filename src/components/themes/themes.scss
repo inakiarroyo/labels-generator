@@ -1,0 +1,15 @@
+@import "../../constants.scss";
+
+.themeListContainer {
+  width: $leftComponentsWith;
+}
+
+.themeContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.tableHeader {
+  background-color: $headerBackgroundGrey;
+}

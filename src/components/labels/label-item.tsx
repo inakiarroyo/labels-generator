@@ -1,6 +1,6 @@
 import * as styles from 'components/labels/labels.scss';
 import * as React from 'react';
-import { Label } from 'themes/index';
+import { Label } from 'core/types';
 import { getTextColorFromBackground } from 'utils/utils';
 import Typography from '@material-ui/core/Typography';
 import { emojify } from 'node-emoji';
