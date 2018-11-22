@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@types/react": "^16.3.17",
-    "@types/react-dom": "^16.0.6",
+    "@types/react-dom": "^16.0.10",
     "@types/uuid": "^3.4.3",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
