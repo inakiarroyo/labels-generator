@@ -37,7 +37,7 @@
   "homepage": "https://github.com/iarroyo5/labels-generator#readme",
   "dependencies": {
     "@material-ui/core": "^3.6.1",
-    "@material-ui/icons": "^1.1.0",
+    "@material-ui/icons": "^3.0.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "uuid": "^3.2.1"
